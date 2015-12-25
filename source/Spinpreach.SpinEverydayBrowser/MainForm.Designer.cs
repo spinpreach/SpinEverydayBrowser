@@ -60,7 +60,7 @@
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Name = "MenuBar";
             this.MenuBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuBar.Size = new System.Drawing.Size(964, 39);
+            this.MenuBar.Size = new System.Drawing.Size(960, 39);
             this.MenuBar.TabIndex = 1;
             this.MenuBar.Text = "MenuBar";
             // 
@@ -138,7 +138,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(964, 702);
+            this.panel1.Size = new System.Drawing.Size(960, 540);
             this.panel1.TabIndex = 2;
             // 
             // MonsterGirlsBrowser
@@ -147,7 +147,7 @@
             this.MonsterGirlsBrowser.Location = new System.Drawing.Point(0, 0);
             this.MonsterGirlsBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.MonsterGirlsBrowser.Name = "MonsterGirlsBrowser";
-            this.MonsterGirlsBrowser.Size = new System.Drawing.Size(964, 702);
+            this.MonsterGirlsBrowser.Size = new System.Drawing.Size(960, 540);
             this.MonsterGirlsBrowser.TabIndex = 0;
             // 
             // MissionNotify
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 741);
+            this.ClientSize = new System.Drawing.Size(960, 579);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MenuBar);
             this.Name = "MainForm";
