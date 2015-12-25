@@ -1,0 +1,23 @@
+ SpinDanceBrowser.exe Ç≈ÇÕà»â∫ÇÃÉâÉCÉuÉâÉäÇégópÇµÇƒÇ¢Ç‹Ç∑ÅB
+
+************************************************************************
+ÅyNewtonsoft.JsonÅz
+ https://github.com/JamesNK/Newtonsoft.Json
+ The MIT License (MIT)
+************************************************************************
+Åy.NET Core Audio APIsÅz
+ https://netcoreaudio.codeplex.com/
+ The MIT License (MIT)
+************************************************************************
+ÅyNekoxyÅz
+ https://github.com/veigr/Nekoxy
+ The MIT License (MIT)
+************************************************************************
+ÅyTrotiNetÅz
+ https://github.com/krys-g/TrotiNet
+ (LGPL). See: http://www.gnu.org/licenses/lgpl.html
+************************************************************************
+ÅyApache log4netÅz
+ https://logging.apache.org/log4net/
+Apache License, Version 2.0
+************************************************************************
