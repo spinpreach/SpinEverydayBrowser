@@ -125,41 +125,27 @@ namespace Spinpreach.MonsterGirlsPlayer
             }
         }
 
-        private MSHTML.HTMLDivElement getDivElementsByClassName(MSHTML.HTMLDocument document, string className)
+        private MSHTML.HTMLDocument ConvertToDocument(MSHTML.HTMLFrameElement frame)
         {
             try
             {
-                if (document == null) return null;
-                var divs = document.getElementsByTagName("div");
-                foreach (MSHTML.HTMLDivElement item in divs)
-                {
-                    if (item.className == className)
-                    {
-                        return item;
-                    }
-                }
-                return null;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
+                if (frame == null) return null;
 
-        private MSHTML.HTMLParaElement getParaElementsByClassName(MSHTML.HTMLDocument document, string className)
-        {
-            try
-            {
-                if (document == null) return null;
-                var paras = document.getElementsByTagName("p");
-                foreach (MSHTML.HTMLParaElement item in paras)
-                {
-                    if (item.className == className)
-                    {
-                        return item;
-                    }
-                }
-                return null;
+                var window = frame.contentWindow as MSHTML.HTMLWindow2;
+                if (window == null) return null;
+
+                var provider = window as IServiceProvider;
+                if (provider == null) return null;
+
+                var guidService = typeof(SHDocVw.IWebBrowserApp).GUID;
+                var riid = typeof(SHDocVw.IWebBrowser2).GUID;
+                object ppvObject;
+                provider.QueryService(guidService, riid, out ppvObject);
+
+                var webBrowser = ppvObject as SHDocVw.IWebBrowser2;
+                if (webBrowser == null) return null;
+
+                return webBrowser.Document as MSHTML.HTMLDocument;
             }
             catch (Exception)
             {
@@ -194,7 +180,7 @@ namespace Spinpreach.MonsterGirlsPlayer
 
                 var div01 = document.getElementById("dmm-ntgnavi-renew");
                 var div02 = document.getElementById("ntg-recommend");
-                var div03 = this.getDivElementsByClassName(document, "area-naviapp mg-t20");
+                var div03 = document.getElementsByClassName("div").Cast<MSHTML.HTMLParaElement>().SingleOrDefault(x => x.className == "area-naviapp mg-t20");
                 var div04 = document.getElementById("foot");
 
                 if (div01 != null) div01.style.display = "none";
@@ -209,7 +195,7 @@ namespace Spinpreach.MonsterGirlsPlayer
 
                 var div11 = document2.getElementById("spacing_top");
                 //var div12 = document2.getElementById("flashWrap");
-                var div13 = this.getParaElementsByClassName(document2, "ms_bnrArea");
+                var div13 = document2.getElementsByTagName("p").Cast<MSHTML.HTMLParaElement>().SingleOrDefault(x => x.className == "ms_bnrArea");
                 var div14 = document2.getElementById("area-annex");
 
                 if (div11 != null) div11.style.display = "none";
@@ -233,7 +219,7 @@ namespace Spinpreach.MonsterGirlsPlayer
                 var document = this.Document.DomDocument as MSHTML.HTMLDocument;
                 if (document == null) return;
 
-                var frame = document.getElementById("game_frame");
+                var frame = document.getElementById("game_frame") as MSHTML.HTMLFrameElement;
                 if (frame == null) return;
 
                 var swf = this.getFrameById(document, "game_frame")?.getElementById("externalswf") as MSHTML.HTMLEmbed;
