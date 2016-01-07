@@ -92,17 +92,17 @@ namespace Spinpreach.MonsterGirlsPlayer
 
         #region method
 
-        private mshtml.HTMLDocument getFrameById(mshtml.HTMLDocument document, string frameId)
+        private MSHTML.HTMLDocument getFrameById(MSHTML.HTMLDocument document, string frameId)
         {
             try
             {
 
                 if (document == null) return null;
 
-                var frame = document.getElementById(frameId) as mshtml.HTMLFrameElement;
+                var frame = document.getElementById(frameId) as MSHTML.HTMLFrameElement;
                 if (frame == null) return null;
 
-                var window = frame.contentWindow as mshtml.HTMLWindow2;
+                var window = frame.contentWindow as MSHTML.HTMLWindow2;
                 if (window == null) return null;
 
                 var provider = window as IServiceProvider;
@@ -116,7 +116,7 @@ namespace Spinpreach.MonsterGirlsPlayer
                 var webBrowser = ppvObject as SHDocVw.IWebBrowser2;
                 if (webBrowser == null) return null;
 
-                return webBrowser.Document as mshtml.HTMLDocument;
+                return webBrowser.Document as MSHTML.HTMLDocument;
 
             }
             catch (Exception)
@@ -125,13 +125,13 @@ namespace Spinpreach.MonsterGirlsPlayer
             }
         }
 
-        private mshtml.HTMLDivElement getDivElementsByClassName(mshtml.HTMLDocument document, string className)
+        private MSHTML.HTMLDivElement getDivElementsByClassName(MSHTML.HTMLDocument document, string className)
         {
             try
             {
                 if (document == null) return null;
                 var divs = document.getElementsByTagName("div");
-                foreach (mshtml.HTMLDivElement item in divs)
+                foreach (MSHTML.HTMLDivElement item in divs)
                 {
                     if (item.className == className)
                     {
@@ -146,13 +146,13 @@ namespace Spinpreach.MonsterGirlsPlayer
             }
         }
 
-        private mshtml.HTMLParaElement getParaElementsByClassName(mshtml.HTMLDocument document, string className)
+        private MSHTML.HTMLParaElement getParaElementsByClassName(MSHTML.HTMLDocument document, string className)
         {
             try
             {
                 if (document == null) return null;
                 var paras = document.getElementsByTagName("p");
-                foreach (mshtml.HTMLParaElement item in paras)
+                foreach (MSHTML.HTMLParaElement item in paras)
                 {
                     if (item.className == className)
                     {
@@ -187,7 +187,7 @@ namespace Spinpreach.MonsterGirlsPlayer
 
                 #endregion
 
-                var document = this.Document.DomDocument as mshtml.HTMLDocument;
+                var document = this.Document.DomDocument as MSHTML.HTMLDocument;
                 if (document == null) return;
 
                 document.createStyleSheet().cssText = css.ToString();
@@ -230,13 +230,13 @@ namespace Spinpreach.MonsterGirlsPlayer
 
                 if (this.Document == null) return;
 
-                var document = this.Document.DomDocument as mshtml.HTMLDocument;
+                var document = this.Document.DomDocument as MSHTML.HTMLDocument;
                 if (document == null) return;
 
                 var frame = document.getElementById("game_frame");
                 if (frame == null) return;
 
-                var swf = this.getFrameById(document, "game_frame")?.getElementById("externalswf") as mshtml.HTMLEmbed;
+                var swf = this.getFrameById(document, "game_frame")?.getElementById("externalswf") as MSHTML.HTMLEmbed;
                 if (swf == null) return;
 
                 frame.style.width = string.Format("{0}px", width);
@@ -279,10 +279,10 @@ namespace Spinpreach.MonsterGirlsPlayer
             {
                 if (this.Document == null) return;
 
-                var document = this.Document.DomDocument as mshtml.HTMLDocument;
+                var document = this.Document.DomDocument as MSHTML.HTMLDocument;
                 if (document == null) return;
 
-                var swf = this.getFrameById(document, "game_frame")?.getElementById("externalswf") as mshtml.HTMLEmbed;
+                var swf = this.getFrameById(document, "game_frame")?.getElementById("externalswf") as MSHTML.HTMLEmbed;
                 if (swf == null) return;
 
                 var width = int.Parse(swf.width);
