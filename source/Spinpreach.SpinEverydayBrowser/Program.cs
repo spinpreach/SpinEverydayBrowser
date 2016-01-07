@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 using Spinpreach.MonsterGirlsDataBase;
 using Spinpreach.MonsterGirlsPlayer;
+using System.Threading;
 
 namespace Spinpreach.SpinEverydayBrowser
 {
