@@ -20,7 +20,7 @@ namespace Spinpreach.SpinEverydayBrowser
     {
 
         private MonsterGirlsData database;
-        private LoginInfo login;
+        
         private Action LoginCompletedAction;
         private Action<Exception> LoginErrorAction;
         private Action<bool> MuteChangedAction;
@@ -52,12 +52,13 @@ namespace Spinpreach.SpinEverydayBrowser
         {
             this.MonsterGirlsBrowser.LoginCompletedEvent += this.LoginCompletedAction;
             this.MonsterGirlsBrowser.LoginErrorEvent += this.LoginErrorAction;
-            this.login = LoginInfo.Load();
-            if (this.login.IsExists()) this.MonsterGirlsBrowser.Start(this.login);
+
+            this.MonsterGirlsBrowser.Start();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.MonsterGirlsBrowser.MuteChangedEvent -= this.MuteChangedAction;
             //this.missionTimer.Notify = null;
             //this.resourceTimer.Notify = null;
             Common.ShapeMemory.Save(this);
@@ -116,7 +117,7 @@ namespace Spinpreach.SpinEverydayBrowser
                 this.MonsterGirlsBrowser.MuteChangedEvent -= this.MuteChangedAction;
                 //this.missionTimer.Notify -= this.missionAction;
                 //this.resourceTimer.Notify -= this.resourceAction;
-                this.MonsterGirlsBrowser.Start(this.login);
+                this.MonsterGirlsBrowser.Start();
             }
         }
 
